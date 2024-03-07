@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wallmartcodingchallenge.model.response.CountryListResponseItem
 import com.example.wallmarttakehome.databinding.CardViewBinding
 
-class CountryAdapter: RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
     private var countriesList = mutableListOf<CountryListResponseItem>()
 
     fun setCountries(countries: List<CountryListResponseItem>) {
@@ -14,7 +14,7 @@ class CountryAdapter: RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class CountryViewHolder(val binding: CardViewBinding): RecyclerView.ViewHolder(binding.root)
+    class CountryViewHolder(val binding: CardViewBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,7 +22,7 @@ class CountryAdapter: RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
         return CountryViewHolder(binding)
     }
 
-    override fun getItemCount(): Int  = countriesList.size
+    override fun getItemCount(): Int = countriesList.size
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = countriesList[position]

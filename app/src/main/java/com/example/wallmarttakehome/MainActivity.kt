@@ -1,14 +1,13 @@
 package com.example.wallmarttakehome
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.wallmarttakehome.databinding.ActivityMainBinding
-import com.example.wallmarttakehome.databinding.CardViewBinding
 import com.example.wallmarttakehome.model.remote.RetrofitService
 import com.example.wallmarttakehome.model.repository.CountryRepository
 import com.example.wallmarttakehome.viewmodel.CountryViewModel
@@ -33,7 +32,10 @@ class MainActivity : AppCompatActivity() {
             adapter = countryAdapter
         }
 
-        viewModel = ViewModelProvider(this, CountryViewModelFactory(countryRepo)).get(CountryViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            CountryViewModelFactory(countryRepo)
+        ).get(CountryViewModel::class.java)
 
         viewModel.countries.observe(this) {
             countryAdapter.setCountries(it)
